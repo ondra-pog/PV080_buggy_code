@@ -1,5 +1,6 @@
 import yaml
 import flask
+import sys
 
 app = flask.Flask(__name__)
 
@@ -26,7 +27,7 @@ def fetch_website(urllib_version, url):
     if urllib_version in [2, 3]:
         exec(f"import urllib{urllib_version} as urllib", globals())
     else:
-        exit()
+        sys.exit(status="wrong urllib version")
     # Fetch and print the requested URL
  
     try: 
